@@ -1,0 +1,35 @@
+﻿namespace Api.Tests.Common.Enums;
+
+public enum FieldEnum
+{
+    UserRoleId = 1,
+    DriverId = 2,
+    PlanId = 3,
+    PlanTypeId = 4,
+    MotorcycleId = 5,
+    OrderId = 6,
+    StatusId = 7,
+    NotificationId = 8,
+    UserId = 9,
+    Name = 10,
+    Cnpj = 11,
+    Cnh = 12,
+    CnhType = 13,
+    DateOfBirth = 14,
+    Email = 15,
+    Password = 16,
+    DailyRate = 17,
+    AdditionalRate = 18,
+    DailyLateFee = 19,
+    DurationInDays = 20,
+    StartDate = 21,
+    Date = 22,
+    Json = 23,
+    Year = 24,
+    Plate = 25,
+    Description = 26,
+    Identifier = 27,
+    Active = 28,
+    Model = 29,
+    Value = 29
+}

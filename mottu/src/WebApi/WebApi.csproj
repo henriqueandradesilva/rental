@@ -1,0 +1,156 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <NoWarn>$(NoWarn);CA1062;1591;CA1801;S1128;S1481;S1075</NoWarn>
+    <Nullable>disable</Nullable>
+    <NullableReferenceTypes>true</NullableReferenceTypes>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <IsPackable>false</IsPackable>
+    <UserSecretsId>9ad8d4da-a604-4436-acc9-d7ee7c0e590c</UserSecretsId>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+	  <Compile Remove="UseCases\**" />
+	  <Content Remove="UseCases\**" />
+	  <EmbeddedResource Remove="UseCases\**" />
+	  <None Remove="UseCases\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UseCases\V1\Auth\PostAuthController.cs" />
+    <Compile Include="UseCases\V1\Driver\DeleteDriverController.cs" />
+    <Compile Include="UseCases\V1\Driver\GetListAllDriverController.cs" />
+    <Compile Include="UseCases\V1\Driver\GetListDriverByCnpjController.cs" />
+    <Compile Include="UseCases\V1\Driver\GetListSearchDriverController.cs" />
+    <Compile Include="UseCases\V1\Driver\GetDriverByIdController.cs" />
+    <Compile Include="UseCases\V1\Driver\GetListDriverByCnhController.cs" />
+    <Compile Include="UseCases\V1\Driver\PostDriverController.cs" />
+    <Compile Include="UseCases\V1\Driver\PostDriverSetCnhImageController.cs" />
+    <Compile Include="UseCases\V1\Driver\PutDriverController.cs" />
+    <Compile Include="UseCases\V1\Driver\PutDriverSetDeliveringController.cs" />
+    <Compile Include="UseCases\V1\Order\DeleteOrderController.cs" />
+    <Compile Include="UseCases\V1\Order\GetListAllOrderController.cs" />
+    <Compile Include="UseCases\V1\Order\GetListSearchOrderController.cs" />
+    <Compile Include="UseCases\V1\Order\GetOrderByIdController.cs" />
+    <Compile Include="UseCases\V1\Order\PostOrderController.cs" />
+    <Compile Include="UseCases\V1\Order\PutOrderSetStatusController.cs" />
+    <Compile Include="UseCases\V1\Order\PutOrderController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\DeleteDriverNotificatedController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\GetListAllDriverNotificatedController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\GetListSearchDriverNotificatedController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\GetDriverNotificatedByIdController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\PostDriverNotificatedController.cs" />
+    <Compile Include="UseCases\V1\DriverNotificated\PutDriverNotificatedController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\DeleteOrderDeliveredController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\GetListAllOrderDeliveredController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\GetListSearchOrderDeliveredController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\GetOrderDeliveredByIdController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\PostOrderDeliveredController.cs" />
+    <Compile Include="UseCases\V1\OrderDelivered\PutOrderDeliveredController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\DeleteOrderAcceptedController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\GetListAllOrderAcceptedController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\GetListSearchOrderAcceptedController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\GetOrderAcceptedByIdController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\PostOrderAcceptedController.cs" />
+    <Compile Include="UseCases\V1\OrderAccepted\PutOrderAcceptedController.cs" />
+    <Compile Include="UseCases\V1\Rental\DeleteRentalController.cs" />
+    <Compile Include="UseCases\V1\Rental\GetListAllRentalController.cs" />
+    <Compile Include="UseCases\V1\Rental\GetListSearchRentalController.cs" />
+    <Compile Include="UseCases\V1\Rental\GetRentalByIdController.cs" />
+    <Compile Include="UseCases\V1\Rental\PostRentalController.cs" />
+    <Compile Include="UseCases\V1\Rental\PutRentalSetReturnController.cs" />
+    <Compile Include="UseCases\V1\Rental\PutRentalController.cs" />
+    <Compile Include="UseCases\V1\User\DeleteUserController.cs" />
+    <Compile Include="UseCases\V1\User\GetListAllUserController.cs" />
+    <Compile Include="UseCases\V1\User\GetListSearchUserController.cs" />
+    <Compile Include="UseCases\V1\User\GetUserByIdController.cs" />
+    <Compile Include="UseCases\V1\User\PostUserController.cs" />
+    <Compile Include="UseCases\V1\User\PutUserController.cs" />
+    <Compile Include="UseCases\V1\User\PutUserSetActiveController.cs" />
+    <Compile Include="UseCases\V1\Plan\DeletePlanController.cs" />
+    <Compile Include="UseCases\V1\Plan\GetListAllPlanController.cs" />
+    <Compile Include="UseCases\V1\Plan\GetListSearchPlanController.cs" />
+    <Compile Include="UseCases\V1\Plan\GetPlanByIdController.cs" />
+    <Compile Include="UseCases\V1\Plan\PostPlanController.cs" />
+    <Compile Include="UseCases\V1\Plan\PutPlanSetActiveController.cs" />
+    <Compile Include="UseCases\V1\Plan\PutPlanController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\PutMotorcycleSetRentedController.cs" />
+    <Compile Include="UseCases\V1\Notification\DeleteNotificationController.cs" />
+    <Compile Include="UseCases\V1\Notification\GetListAllNotificationController.cs" />
+    <Compile Include="UseCases\V1\Notification\GetListSearchNotificationController.cs" />
+    <Compile Include="UseCases\V1\Notification\GetNotificationByIdController.cs" />
+    <Compile Include="UseCases\V1\Notification\PostNotificationController.cs" />
+    <Compile Include="UseCases\V1\Notification\PutNotificationController.cs" />
+    <Compile Include="UseCases\V1\PlanType\DeletePlanTypeController.cs" />
+    <Compile Include="UseCases\V1\PlanType\GetListAllPlanTypeController.cs" />
+    <Compile Include="UseCases\V1\PlanType\GetListSearchPlanTypeController.cs" />
+    <Compile Include="UseCases\V1\PlanType\GetPlanTypeByIdController.cs" />
+    <Compile Include="UseCases\V1\PlanType\PostPlanTypeController.cs" />
+    <Compile Include="UseCases\V1\PlanType\PutPlanTypeController.cs" />
+    <Compile Include="UseCases\V1\UserRole\DeleteUserRoleController.cs" />
+    <Compile Include="UseCases\V1\UserRole\GetListAllUserRoleController.cs" />
+    <Compile Include="UseCases\V1\UserRole\GetListSearchUserRoleController.cs" />
+    <Compile Include="UseCases\V1\UserRole\GetUserRoleByIdController.cs" />
+    <Compile Include="UseCases\V1\UserRole\PostUserRoleController.cs" />
+    <Compile Include="UseCases\V1\UserRole\PutUserRoleController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\DeleteOrderStatusController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\GetListAllOrderStatusController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\GetListSearchOrderStatusController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\GetOrderStatusByIdController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\PostOrderStatusController.cs" />
+    <Compile Include="UseCases\V1\OrderStatus\PutOrderStatusController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\DeleteModelVehicleController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\GetListAllModelVehicleController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\GetListSearchModelVehicleController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\GetModelVehicleByIdController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\PostModelVehicleController.cs" />
+    <Compile Include="UseCases\V1\ModelVehicle\PutModelVehicleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\DeleteMotorcycleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\GetListMotorcycleByPlateController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\GetMotorcycleByIdController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\GetListAllMotorcycleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\GetListSearchMotorcycleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\PostMotorcycleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\PutMotorcycleController.cs" />
+    <Compile Include="UseCases\V1\Motorcycle\PutMotorcycleSetPlateController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Microsoft -->
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Third party -->
+    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+    <!-- Decorator injection comparison https://greatrexpectations.com/2018/10/25/decorators-in-net-core-with-dependency-injection -->
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.8.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+	<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+	<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	  </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+</Project>

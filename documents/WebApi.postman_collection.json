@@ -1,0 +1,4170 @@
+{
+	"info": {
+		"_postman_id": "f442235b-498e-48b6-abc2-faba7dd1cbb8",
+		"name": "0 - WebApi",
+		"description": ".\n\nContact Support:\n Name: Mottu\n Email: contato@mottu.app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v1/auth",
+			"item": [
+				{
+					"name": "/api/v1/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@mottu.app\",\r\n  \"senha\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/entregadores",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/entregadores/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/entregadores/:id/cnh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Imagem_Cnh\": \"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\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/1/cnh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"1",
+										"cnh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/entregadores/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"identificador\": \"1234567890\",\n  \"nome\": \"BRUNO\",\n  \"cnpj\": \"05.822.358/0001-13\",\n  \"data_Nascimento\": \"2004-10-05T00:03:05.584Z\",\n  \"numero_Cnh\": \"12345671234\",\n  \"tipo_Cnh\": \"A\",\n  \"Imagem_Cnh\": \"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\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/entregadores/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "{cnpj}",
+					"item": [
+						{
+							"name": "/api/v1/entregadores/cnpj/:cnpj",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/05822358000113/cnpj",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"05822358000113",
+										"cnpj"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "{cnh}",
+					"item": [
+						{
+							"name": "/api/v1/entregadores/cnh/:cnh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadores/12345671234/cnh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadores",
+										"12345671234",
+										"cnh"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "entregadores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identificador\": \"1234567890\",\n  \"nome\": \"BRUNO\",\n  \"cnpj\": \"51.149.742/0001-14\",\n  \"data_Nascimento\": \"2004-10-05T00:03:05.584Z\",\n  \"numero_Cnh\": \"12345671234\",\n  \"tipo_Cnh\": \"A\",\n  \"Imagem_Cnh\": \"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\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/entregadores/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadores/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadores",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/entregadores/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Bruno\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"name\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadores/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadores",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/usuarios",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/usuarios/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/usuarios/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"tipoPerfilId\": 2,\n  \"nome\": \"henrique\",\n  \"email\": \"henrique@mottu.app\",\n  \"senha\": \"1234\",\n  \"ativo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/usuarios/:id/ativo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ativo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/2/ativo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"2",
+										"ativo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/usuarios/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/usuarios/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipoPerfilId\": 2,\n  \"nome\": \"henrique\",\n  \"email\": \"henrique@mottu.app\",\n  \"senha\": \"1234\",\n  \"ativo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/usuarios/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/usuarios/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"admin\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"name\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/usuarios/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/motos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/motos/:id/placa",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"placa\": \"CDX-0102\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/motos/1/placa",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"motos",
+										"1",
+										"placa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/motos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"identificador\": \"moto123\",\n  \"ano\": 2024,\n  \"modelo\": \"MOTTU SPORT\",\n  \"placa\": \"CDX-0102\",\n  \"alugado\" : true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/motos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"motos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/motos/:id/alugado",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"alugado\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/motos/1/alugado",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"motos",
+										"1",
+										"alugado"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/motos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/motos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"motos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/motos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/motos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"motos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "motos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identificador\": \"moto123\",\n  \"ano\": 2024,\n  \"modelo\": \"MOTTU SPORT\",\n  \"placa\": \"CDX-0101\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/motos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"motos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/motos/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/motos?placa=CDX-0102",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"motos"
+							],
+							"query": [
+								{
+									"key": "placa",
+									"value": "CDX-0102"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/motos/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/motos/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"motos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/motos/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"listaRelacionamento\": [\n    {\n      \"item1\": \"modelVehicleId\",\n      \"item2\": 1\n    }\n  ],\n  \"texto\": \"MOTTU SPORT\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/motos/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"motos",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/locacao",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/locacao/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/locacao/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"locacao",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/locacao/:id/devolucao",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n      \"data_Devolucao\": \"2024-12-09T23:51:57.410Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/locacao/1/devolucao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"locacao",
+										"1",
+										"devolucao"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/locacao/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"entregador_Id\": 1,\n  \"moto_Id\": 1,\n  \"plano_Id\": 5,\n  \"data_Inicio\": \"2024-10-08T23:51:57.410Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/locacao/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"locacao",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/locacao/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/locacao/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"locacao",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "locacao",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entregador_Id\": 1,\n  \"moto_Id\": 1,\n  \"plano_Id\": 2,\n  \"data_Inicio\": \"2024-10-15T23:51:57.410Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/locacao",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"locacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/locacao/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/locacao/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"locacao",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/locacao/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Bruno\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"endDate\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/locacao/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"locacao",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/pedidos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/pedidos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"descricao\": \"Pedido Nº 00001\",\n  \"valor\": 15.0,\n  \"data\": \"2024-10-06T19:55:52.362Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/usuarios/:id/status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"statusId\": 4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidos/1/status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidos",
+										"1",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"Pedido Nº 00001\",\n  \"valor\": 10.0,\n  \"data\": \"2024-10-06T19:55:52.362Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidos/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidos/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidos/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Pedido Nº 00\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"description\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidos/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidos",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/pedidosAceitos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/pedidosAceitos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosAceitos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosAceitos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidosAceitos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"entregadorId\": 1,\n  \"pedidoId\": 1,\n  \"data\": \"2024-10-07T20:35:37.863Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosAceitos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosAceitos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidosAceitos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosAceitos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosAceitos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pedidosAceitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entregadorId\": 1,\n  \"pedidoId\": 1,\n  \"data\": \"2024-10-07T20:30:37.863Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosAceitos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosAceitos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidosAceitos/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosAceitos/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosAceitos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidosAceitos/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Bruno\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"orderId\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosAceitos/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosAceitos",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/pedidosEntregues",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/pedidosEntregues/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosEntregues/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosEntregues",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidosEntregues/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"entregadorId\": 1,\n  \"pedidoId\": 1,\n  \"data\": \"2024-10-07T20:35:37.863Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosEntregues/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosEntregues",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/pedidosEntregues/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pedidosEntregues/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pedidosEntregues",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pedidosEntregues",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entregadorId\": 1,\n  \"pedidoId\": 1,\n  \"data\": \"2024-10-07T20:30:37.863Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosEntregues",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosEntregues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidosEntregues/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosEntregues/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosEntregues",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/pedidosEntregues/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Bruno\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"orderId\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pedidosEntregues/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pedidosEntregues",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/notificacoes",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/notificacoes/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/notificacoes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notificacoes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/notificacoes/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"pedidoId\": 1,\n  \"data\": \"2024-01-02T00:00:00Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/notificacoes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notificacoes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/notificacoes/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/notificacoes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notificacoes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "notificacoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pedidoId\": 1,\n  \"data\": \"2024-01-01T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/notificacoes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notificacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/notificacoes/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/notificacoes/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notificacoes",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/notificacoes/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Pedido Nº 0\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"orderId\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/notificacoes/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notificacoes",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/entregadoresNotificados",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/entregadoresNotificados/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadoresNotificados/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadoresNotificados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/entregadoresNotificados/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"entregadorId\": 1,\n  \"notificacaoId\": 1,\n  \"data\": \"2024-10-07T21:31:54.987Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadoresNotificados/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadoresNotificados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/entregadoresNotificados/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/entregadoresNotificados/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"entregadoresNotificados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "entregadoresNotificados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entregadorId\": 1,\n  \"notificacaoId\": 1,\n  \"data\": \"2024-10-07T21:31:54.987Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadoresNotificados",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadoresNotificados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/entregadoresNotificados/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadoresNotificados/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadoresNotificados",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/entregadoresNotificados/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Bruno\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"notificationId\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/entregadoresNotificados/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entregadoresNotificados",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/modelosVeiculo",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/modelosVeiculo/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/modelosVeiculo/11",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"modelosVeiculo",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/modelosVeiculo/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"descricao\": \"MOTTU SPORT2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/modelosVeiculo/11",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"modelosVeiculo",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/modelosVeiculo/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/modelosVeiculo/11",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"modelosVeiculo",
+										"11"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "modelosVeiculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"MOTTU SPORT1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/modelosVeiculo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"modelosVeiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/modelosVeiculo/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/modelosVeiculo/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"modelosVeiculo",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/modelosVeiculo/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"MOTTU SPORT\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/modelosVeiculo/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"modelosVeiculo",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/statusPedido",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/statusPedido/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/statusPedido/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"statusPedido",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/statusPedido/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"descricao\": \"Aguardando2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/statusPedido/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"statusPedido",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/statusPedido/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/statusPedido/5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"statusPedido",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "statusPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"Aguardando\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/statusPedido",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"statusPedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/statusPedido/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/statusPedido/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"statusPedido",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/statusPedido/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"E\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"description\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/statusPedido/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"statusPedido",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/planos",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/planos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/planos/6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"planos",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/planos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"tipoPlanoId\": 3,\n  \"descricao\": \"101 Dias\",\n  \"taxaDiaria\": 12.00,\n  \"taxaAdicional\": 1.2,\n  \"taxaFixa\": 50.00,\n  \"duracaoEmDias\": 100,\n  \"ativo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/planos/6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"planos",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/planos/:id/ativo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ativo\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/planos/6/ativo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"planos",
+										"6",
+										"ativo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/planos/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/planos/6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"planos",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "planos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipoPlanoId\": 3,\n  \"descricao\": \"100 Dias\",\n  \"taxaDiaria\": 12.00,\n  \"taxaAdicional\": 1.2,\n  \"taxaFixa\": 50.00,\n  \"duracaoEmDias\": 100,\n  \"ativo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/planos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"planos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/planos/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/planos/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"planos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/planos/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"50 Dias\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"description\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/planos/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"planos",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/tiposPlano",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/tiposPlano/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPlano/4",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPlano",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/tiposPlano/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"descricao\": \"Master2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPlano/4",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPlano",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/tiposPlano/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPlano/4",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPlano",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tiposPlano",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"Master\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPlano",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPlano"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/tiposPlano/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPlano/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPlano",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/tiposPlano/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Prime\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"description\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPlano/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPlano",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1/tiposPerfil",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/api/v1/tiposPerfil/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPerfil/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPerfil",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/tiposPerfil/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"descricao\": \"Consultor2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPerfil/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPerfil",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/v1/tiposPerfil/:id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/tiposPerfil/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tiposPerfil",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tiposPerfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"Consultor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPerfil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPerfil"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/tiposPerfil/listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPerfil/listar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPerfil",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/tiposPerfil/consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"texto\": \"Entregador\",\n  \"paginaAtual\": 1,\n  \"tamanhoPagina\": 100,\n  \"campoOrdenacao\" : \"description\",\n  \"direcaoOrdenacao\" : \"asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tiposPerfil/consultar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tiposPerfil",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081"
+		},
+		{
+			"key": "bearer",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFETUlOQE1PVFRVLkFQUCIsImp0aSI6ImY3OGE4YTNjNGE0NTQwYzE4NTQxZjgwODYwNTYyMDA5IiwibmFtZWlkIjoiQURNSU4iLCJyb2xlIjoiQURNSU4iLCJVc2VySWQiOiIxIiwibmJmIjoxNzI4MDY4NTA4LCJleHAiOjE3Mjg3NTk3MDgsImlhdCI6MTcyODA2ODUwOCwiaXNzIjoiTW90dHUtRGV2IiwiYXVkIjoiTW90dHUtRGV2In0.QnA_d7g_cIhdkvEd-TyjS-h-PwuhkFS251NfQhdpW6s"
+		}
+	]
+}

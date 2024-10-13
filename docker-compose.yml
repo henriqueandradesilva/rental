@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: jT7RG4k7L
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: mottu
+      RABBITMQ_DEFAULT_PASS: mottu
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  web.api:
+    image: ${DOCKER_REGISTRY-}web-api
+    container_name: webapi
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+     - "8081:80"
+    build:
+      context: .
+      dockerfile: mottu/src/WebApi/Dockerfile
+
+  motorcycle.worker:
+    image: ${DOCKER_REGISTRY-}worker
+    container_name: motorcycle.worker
+    depends_on:
+      - db
+      - rabbitmq
+      - web.api
+    build:
+      context: .
+      dockerfile: mottu/src/MotorcycleWorker/Dockerfile
+
+  order.worker:
+    image: ${DOCKER_REGISTRY-}worker
+    container_name: order.worker
+    depends_on:
+      - db
+      - rabbitmq
+      - web.api
+    build:
+      context: .
+      dockerfile: mottu/src/OrderWorker/Dockerfile
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
