@@ -64,6 +64,13 @@ Pressione F5 ou clique em "Iniciar" para executar a aplicação.
 6. **Acesse a documentação Swagger:**
 Abra o navegador e acesse: https://localhost:8081/swagger/index.html.
 
+## Acesso de Administrador
+
+Para fazer login como administrador, utilize as seguintes credenciais:
+
+- **E-mail:** admin@mottu.app
+- **Senha:** 1
+
 ## Coleção Postman
 
 Esta coleção contém as requisições para a API. 
