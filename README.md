@@ -70,6 +70,12 @@ Esta coleção contém as requisições para a API.
 
 *Arquivo: [Coleção Postman](./documents/WebApi.postman_collection.json)*
 
+## Api Tests
+
+Alguns testes...
+
+![Testes Api](./documents/tests.png)
+
 ## Padrão de Arquitetura
 
 Aqui está uma visão geral da arquitetura do sistema.
