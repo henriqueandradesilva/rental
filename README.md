@@ -8,7 +8,7 @@ Este projeto tem como objetivo desenvolver uma aplicação para gerenciar o alug
 - **PostgreSQL**: Banco de dados relacional para armazenamento de dados.
 - **RabbitMQ**: Sistema de mensageria para comunicação entre serviços.
 - **Testcontainers**: Para testes de integração com contêineres.
-- **Firebase**: Para autenticação e gerenciamento de usuários.
+- **Firebase**: Para upload de imagens.
 - **Swagger**: Documentação da API e versionamento.
 - **Microsoft Extensions**: Para configuração e extensão da aplicação.
 
