@@ -30,7 +30,7 @@ Este projeto adota princípios de **Clean Architecture**, **Onion Architecture**
 
 ## Segurança
 
-- **Authentication**: Implementação de autenticação de usuários con Jwt.
+- **Authentication**: Implementação de autenticação de usuários.
 - **Authorization**: Controle de acesso baseado em roles e permissões.
 
 ## Padrões e Práticas
